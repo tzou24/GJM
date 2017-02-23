@@ -32,11 +32,11 @@ public class GenerateQRCode {
 		/**
 		 * 生成二维码
 		 */
-		GenerateQRCode.encode_large(data, "D:/test/123.png");
+		GenerateQRCode.encode_small(data, "D:/test/123.png");
 		/**
 		 * 解析二维码
 		 */
-		GenerateQRCode.decode("D:/test/123.png");
+//		GenerateQRCode.decode("D:/test/123.png");
 	}
 
 	/**
