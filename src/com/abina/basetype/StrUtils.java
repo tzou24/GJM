@@ -1443,6 +1443,22 @@ public class StrUtils {
 		}
 		return flag;
 	}
+	
+	/**
+	 * 判断集合是否为空
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static boolean listIsNotEmpty(List list) {
+		boolean flag = true;
+		if (list != null && !list.isEmpty()) {
+			flag = true;
+		} else {
+			flag = false;
+		}
+		return flag;
+	}
 
 	/**
 	 * 全角字符变半角字符
