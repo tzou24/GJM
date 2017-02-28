@@ -7,6 +7,8 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1867,13 +1869,79 @@ public class StrUtils {
 		return isBaseClass;
 	}
 
+	
 	/**
-	 * 判断这个类是不是java自带的类
+	 * 将数组成separator连接成字符串
 	 * 
-	 * @param clazz
+	 * @param separator 分隔符
+	 * @param array
 	 * @return
 	 */
-	public static String getEmptyString() {
-		return "";
+	public static String splitArr(String separator, Object[] array) {
+		if (separator == null || array == null) {
+			return "";
+		}
+		String result = "";
+		for (int i = 0; i < array.length; i++) {
+			if (i == array.length - 1) {
+				result += array[i].toString();
+			} else {
+				result += array[i].toString() + separator;
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * MD5 加密
+	 * @param str
+	 * @param zero  true 追加0， false 不追加0
+	 * @return
+	 */
+	public static String md5(String str, boolean zero) {
+		MessageDigest messageDigest = null;
+		try {
+			messageDigest = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+		byte[] resultByte = messageDigest.digest(str.getBytes());
+		StringBuffer result = new StringBuffer();
+		for (int i = 0; i < resultByte.length; ++i) {
+			int v = 0xFF & resultByte[i];
+			if(v<16 && zero)
+				result.append("0");
+			result.append(Integer.toHexString(v));
+		}
+		return result.toString();
+	}
+	
+	/**
+	 * 去除HTML 元素
+	 * 
+	 * @param element
+	 * @return
+	 */
+	public static String getTxtWithoutHTMLElement(String element) {
+		if (null == element || "".equals(element.trim())) {
+			return element;
+		}
+
+		Pattern pattern = Pattern.compile("<[^<|^>]*>");
+		Matcher matcher = pattern.matcher(element);
+		StringBuffer txt = new StringBuffer();
+		while (matcher.find()) {
+			String group = matcher.group();
+			if (group.matches("<[\\s]*>")) {
+				matcher.appendReplacement(txt, group);
+			} else {
+				matcher.appendReplacement(txt, "");
+			}
+		}
+		matcher.appendTail(txt);
+		String temp = txt.toString().replaceAll("\n", "");
+		temp = temp.replaceAll(" ", "");
+		return temp;
 	}
 }
