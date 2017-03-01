@@ -15,7 +15,7 @@ import org.apache.commons.beanutils.BeanUtils;
  * @date 20170228
  *
  */
-public class ReflectionUtil {
+public class ReflectionUtils {
 		
 	public static Object invokeMethod(String className, String methodName,
 			Object[] args) {

@@ -13,8 +13,8 @@ import com.abina.basetype.StrUtils;
  * @author kingapex
  * 2010-2-12上午11:34:48
  */
-public abstract class RequestUtil {
-	private RequestUtil(){}
+public abstract class RequestUtils {
+	private RequestUtils(){}
 	/**
 	 * 将request中的参数转为Map
 	 * @param request

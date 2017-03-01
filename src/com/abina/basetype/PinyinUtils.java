@@ -15,7 +15,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
  * java汉字转拼音操作工具类
  */
 
-public class PinyinUtil {
+public class PinyinUtils {
 
 	/**
 	 * 
