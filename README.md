@@ -32,4 +32,5 @@
 
 **webRoot**
 - js插件集合文件夹 - plug-in 
-- 省市区三级下拉 - plyg-in/distpicker.js
+- 省市区三级下拉 - plug-in/distpicker.js
+- 实时时间demo - plug-in/timer

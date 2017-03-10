@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/plug-in/jquery-basic/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+			$("#date").html("日期：" + getCurrentDate);
+			$("#time").html("时间：" + getCurrentTime);
+		setInterval(function(){
+			$("#time").html("时间：" + getCurrentTime);
+		}, 1000);
+	})
+	
+	/**
+	 * 获取当前日期， 年-月-日
+	 */
+	function getCurrentDate(){
+		var date = new Date();
+		var month = date.getMonth() + 1;
+		var currentDate = date.getDate();
+		if(month >= 1 && month <= 9){
+			month = "0" + month;
+		}
+		if(currentDate >= 1 && currentDate <= 9){
+			currentDate = "0"+currentDate;
+		}
+		var dateStr = date.getFullYear() + "-" + month + "-" + currentDate;
+		return dateStr;
+	}
+	
+	/**
+	 * 获取当前时间， 时-分-秒
+	 */
+	function getCurrentTime(){
+		var date = new Date();
+		var minutes = date.getMinutes();
+		var seconds = date.getSeconds();
+		if(minutes >= 0 && minutes <= 9){
+			minutes = "0" + minutes;
+		}
+		if(seconds >= 0 && seconds <= 9){
+			seconds = "0" + seconds;
+		}
+		var timeStr = date.getHours() + ":" + minutes + ":" + seconds;
+		return timeStr;
+	}
+</script>
+</head>
+<body>
+	<!-- setInterval(code,millisec[,"lang"]) -->
+	<div class="timer">
+		<div id="date"></div>
+		<div id="time"></div>
+	</div>
+</body>
+</html>
