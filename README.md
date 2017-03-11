@@ -30,6 +30,9 @@
 - 操作Cookie - CookieUtils
 - request请求操作 - RequestUtils
 
+**security**
+- 密码加密工具类 - PasswordUtils
+
 **webRoot**
 - js插件集合文件夹 - plug-in 
 - 省市区三级下拉 - plug-in/distpicker.js
