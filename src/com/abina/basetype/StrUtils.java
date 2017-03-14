@@ -1944,4 +1944,23 @@ public class StrUtils {
 		temp = temp.replaceAll(" ", "");
 		return temp;
 	}
+	
+	/**
+	 * 根据？占位符，替换传入values
+	 * 
+	 * @param message
+	 *            需要被替换字符串
+	 * @param values
+	 *            替换值
+	 * @return
+	 */
+	public static String replaceMessage(String message, String... values) {
+		if (StrUtils.isEmpty(message) || values == null) {
+			return null;
+		}
+		for (int i = 0; i < values.length; i++) {
+			message = message.replaceFirst("\\?", values[i]);
+		}
+		return message.replace("?", "");
+	}
 }
