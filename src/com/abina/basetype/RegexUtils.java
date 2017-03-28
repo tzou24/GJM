@@ -10,6 +10,7 @@ public class RegexUtils {
 
 	private static String emailRegex = "^([a-z0-9A-Z]+[-|\\.|_]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
 	private static String phoneRegex = "^((1\\d{10}$)$)";
+	private static String notchineseRegex = "^[A-Za-z\\d-._]+$";
 
 	/**
 	 * 验证Email地址是否有效
@@ -61,4 +62,15 @@ public class RegexUtils {
 	        return source;  
 	    } 
 	}
+	
+	/**
+	 * 验证是否中文
+	 * 
+	 * @param chineseLang
+	 * @return true-不是中文，false-是中文
+	 */
+	public static boolean validchinese(String chineseLang) {
+		return chineseLang.matches(notchineseRegex);
+	}
+	
 }
