@@ -22,6 +22,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.CharUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
@@ -1963,4 +1964,28 @@ public class StrUtils {
 		}
 		return message.replace("?", "");
 	}
+	
+	 /**
+     * 对象属性转换为字段 例如：userName to user_name
+     * 
+     * @param property
+     *            字段名
+     * @return
+     */
+    public static String propertyToField(String property) {
+        if (null == property) {
+            return "";
+        }
+        char[] chars = property.toCharArray();
+        StringBuffer sb = new StringBuffer();
+        for (char c : chars) {
+            if (CharUtils.isAsciiAlphaUpper(c)) {
+                sb.append("_" + StringUtils.lowerCase(CharUtils.toString(c)));
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString().toUpperCase();
+    }
+    
 }

@@ -29,6 +29,7 @@
 **http**
 - 操作Cookie - CookieUtils
 - request请求操作 - RequestUtils
+- socket - java.net.socket Demo
 
 **security**
 - 密码加密工具类 - PasswordUtils
