@@ -39,7 +39,7 @@ public class RegexUtils {
 	 * @return
 	 */
 	public static boolean isNumeric(String strValue) {
-		if (StrUtils.isEmpty(strValue)) {
+		if (StringUtil.isEmpty(strValue)) {
 			return false;
 		} else {
 			if (strValue.indexOf(".") > -1) {
@@ -56,7 +56,7 @@ public class RegexUtils {
 	 * @return
 	 */
 	public static String filterEmoji(String source) {
-		if(StrUtils.isNotEmpty(source)){  
+		if(StringUtil.isNotEmpty(source)){  
 	        return source.replaceAll("[\\ud800\\udc00-\\udbff\\udfff\\ud800-\\udfff]", "*");  
 	    }else{  
 	        return source;  

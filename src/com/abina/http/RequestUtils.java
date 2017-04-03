@@ -6,7 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.abina.basetype.StrUtils;
+import com.abina.basetype.StringUtil;
 
 /**
  * httpRequest常用方法工具
@@ -119,7 +119,7 @@ public abstract class RequestUtils {
 	 */
 	public static Integer getIntegerValue(HttpServletRequest request,String name){
 		String value =request.getParameter(name); 
-		if(StrUtils.isEmpty(value)){
+		if(StringUtil.isEmpty(value)){
 			return null;
 		}else{
 			return Integer.valueOf(value);
@@ -130,7 +130,7 @@ public abstract class RequestUtils {
 	
 	public static Double getDoubleValue(HttpServletRequest request,String name){
 		String value =request.getParameter(name); 
-		if(StrUtils.isEmpty(value)){
+		if(StringUtil.isEmpty(value)){
 			return null;
 		}else{
 			return Double.valueOf(value);
@@ -149,7 +149,7 @@ public abstract class RequestUtils {
 	 */
 	public static int getIntValue(HttpServletRequest request,String name){
 		String value =request.getParameter(name); 
-		if(StrUtils.isEmpty(value)){
+		if(StringUtil.isEmpty(value)){
 			return 0;
 		}else{
 			return Integer.valueOf(value);
