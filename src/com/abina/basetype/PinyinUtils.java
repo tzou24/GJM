@@ -734,4 +734,26 @@ public class PinyinUtils {
 		}
 	}
 
+	/**
+	 * @description 大写下划线，转驼峰， 打印输出
+	 * @author abina
+	 */
+	public static void main(String[] args) {
+		String[] w = {
+			"PYM_APLY_DT" 
+			,"EX_DAT" 
+			,"SELLR_CST_ID" 
+			,"CRN_PRD_REPAID_INT" 
+		};
+		
+		for (String str : w) {
+			str = str.toLowerCase();
+			StringBuffer sb = new StringBuffer();
+			for (String str1 : str.split("_")) {
+				sb.append(str1.substring(0, 1).toUpperCase() + str1.substring(1));
+			}
+			System.out.println(sb.substring(0, 1).toLowerCase() 
+					+ sb.substring(1) + "\n");
+		}
+	}
 }
