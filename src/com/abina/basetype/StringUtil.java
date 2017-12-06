@@ -31,6 +31,7 @@ import org.dom4j.io.HTMLWriter;
 import org.dom4j.io.OutputFormat;
 
 public class StringUtil {
+	
 	private static Pattern numericPattern = Pattern.compile("^[0-9\\-]+$");
 	private static Pattern numericStringPattern = Pattern.compile("^[0-9\\-\\-]+$");
 	private static Pattern floatNumericPattern = Pattern.compile("^[0-9\\-\\.]+$");
