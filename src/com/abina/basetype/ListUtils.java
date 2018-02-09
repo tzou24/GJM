@@ -38,4 +38,19 @@ public class ListUtils {
 			}
 		}
 	}
+	
+	public static void sortList(List<Object> list) {
+		Collections.sort(list, new Comparator<Object>() {
+                  @Override
+                  public int compare(Object obj1, Object obj2) {
+                        Date begin = (Date) obj1;
+                    Date end = (Date) obj2;
+                    if (begin.after(end)) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                  }
+           	 });
+	}	
 }
